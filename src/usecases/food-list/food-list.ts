@@ -1,10 +1,10 @@
-import { FoodReadContract } from './food-list-interfaces'
+import { FoodReadContract, OrderOptions } from './food-list-interfaces'
 
 export class FoodList {
   constructor(private foodListRepository: FoodReadContract) {}
 
-  async execute() {
-    const foodList = await this.foodListRepository.getAll()
+  async execute(sortProp?: string, order?: OrderOptions) {
+    const foodList = await this.foodListRepository.getAll(sortProp, order)
     return foodList
   }
 }
