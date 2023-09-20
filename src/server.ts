@@ -1,25 +1,9 @@
-import Fastify, { FastifyInstance, RouteShorthandOptions } from 'fastify'
+import Fastify, { FastifyInstance } from 'fastify'
+import { foodRoutes } from './routes/food-routes'
 
 const server: FastifyInstance = Fastify({})
 
-const opts: RouteShorthandOptions = {
-  schema: {
-    response: {
-      200: {
-        type: 'object',
-        properties: {
-          pong: {
-            type: 'string',
-          },
-        },
-      },
-    },
-  },
-}
-
-server.get('/ping', opts, async (request, reply) => {
-  return { pong: 'it worked!' }
-})
+server.register(foodRoutes)
 
 const start = async () => {
   try {
