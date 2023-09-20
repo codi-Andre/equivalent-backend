@@ -1,9 +1,9 @@
-import { Food } from '../entites/food'
+import fakeData from '../db-in-memory/db'
+import { Food } from '../entities/food'
 import {
   FoodReadContract,
   OrderOptions,
-} from '../usecases/food-list/food-list-interfaces'
-import fakeData from '../db-in-memory/db'
+} from '../use-cases/food-list/food-list-interfaces'
 
 export class FoodRepository implements FoodReadContract {
   private data: Food[] = fakeData

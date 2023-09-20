@@ -1,4 +1,4 @@
-import { Food } from '../../entites/food'
+import { Food } from '@/entities/food'
 
 export enum OrderOptions {
   ASC,
