@@ -14,6 +14,8 @@ export async function deleteFood(request: FastifyRequest, reply: FastifyReply) {
 
     return reply.status(200).send()
   } catch (error) {
+    console.error(error)
+
     if (error instanceof BadRequestError) {
       return reply.status(400).send({ message: error.message })
     }

@@ -15,6 +15,8 @@ export async function createFood(request: FastifyRequest, reply: FastifyReply) {
 
     return reply.status(201).send(newFood)
   } catch (error) {
+    console.error(error)
+
     if (error instanceof FoodAlreadyExistsError) {
       return reply.status(409).send({ message: error.message })
     }
