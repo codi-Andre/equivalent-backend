@@ -6,6 +6,8 @@ import { FastifyReply, FastifyRequest } from 'fastify'
 export async function createFood(request: FastifyRequest, reply: FastifyReply) {
   const foodRequest = request.body
 
+  console.log(foodRequest) // lembrar de apagar depois
+
   try {
     const foodRepository = makeAddFoodRepository()
 

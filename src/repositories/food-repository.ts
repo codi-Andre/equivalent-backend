@@ -1,4 +1,5 @@
 import { CreateFoodContract } from '@/use-cases/add-food/add-food-interface'
+import { DeleteFoodContract } from '@/use-cases/delete-food/delete-food-interface'
 import fakeData from '../db-in-memory/db'
 import { Food } from '../entities/food'
 import {
@@ -6,7 +7,9 @@ import {
   OrderOptions,
 } from '../use-cases/food-list/food-list-interfaces'
 
-export class FoodRepository implements FoodReadContract, CreateFoodContract {
+export class FoodRepository
+  implements FoodReadContract, CreateFoodContract, DeleteFoodContract
+{
   private data: Food[] = fakeData
 
   private sortList(sortProp?: string, order?: OrderOptions) {
@@ -42,14 +45,35 @@ export class FoodRepository implements FoodReadContract, CreateFoodContract {
     return food
   }
 
+  async findById(foodId: string): Promise<Food | null> {
+    const food = this.data.find((item) => item.id === foodId)
+
+    if (!food) {
+      return null
+    }
+
+    return food
+  }
+
   async create(food: Food): Promise<Food> {
     const lastCreated = this.data.at(-1)
 
     if (lastCreated) {
-      food.id = lastCreated.id + 1
+      food.id = lastCreated.id + 1 // lembrar de apagar
       this.data.push(food)
     }
 
     return food
+  }
+
+  async delete(foodId: string): Promise<Food | null> {
+    const index = this.data.findIndex((item) => item.id === foodId)
+
+    if (index < 0) {
+      return null
+    }
+
+    const deletedFood = this.data.splice(index, 1)
+    return deletedFood[0]
   }
 }
