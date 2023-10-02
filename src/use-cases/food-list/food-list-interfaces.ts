@@ -5,7 +5,7 @@ export enum OrderOptions {
   DESC,
 }
 
-export interface FoodReadContract {
+export interface ReadFoodContract {
   getAll(sortProp?: string, order?: OrderOptions): Promise<Food[]>
   findByName(name: string): Promise<Food | null>
   findById(foodId: string): Promise<Food | null>

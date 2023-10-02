@@ -3,12 +3,12 @@ import { DeleteFoodContract } from '@/use-cases/delete-food/delete-food-interfac
 import fakeData from '../db-in-memory/db'
 import { Food } from '../entities/food'
 import {
-  FoodReadContract,
+  ReadFoodContract,
   OrderOptions,
 } from '../use-cases/food-list/food-list-interfaces'
 
 export class FoodRepository
-  implements FoodReadContract, CreateFoodContract, DeleteFoodContract
+  implements ReadFoodContract, CreateFoodContract, DeleteFoodContract
 {
   private data: Food[] = fakeData
 
@@ -56,13 +56,7 @@ export class FoodRepository
   }
 
   async create(food: Food): Promise<Food> {
-    const lastCreated = this.data.at(-1)
-
-    if (lastCreated) {
-      food.id = lastCreated.id + 1 // lembrar de apagar
-      this.data.push(food)
-    }
-
+    this.data.push(food)
     return food
   }
 

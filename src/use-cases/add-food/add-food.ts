@@ -1,11 +1,14 @@
 import { Food } from '@/entities/food'
-import { randomUUID } from 'crypto'
 import { FoodAlreadyExistsError } from '../errors/food-already-exists-error'
-import { FoodReadContract } from '../food-list/food-list-interfaces'
+import { ReadFoodContract } from '../food-list/food-list-interfaces'
 import { CreateFoodContract } from './add-food-interface'
+import { IdsRepositoryContract } from '@/repositories/ids-repository'
 
 export class AddFood {
-  constructor(private foodRepository: FoodReadContract & CreateFoodContract) {}
+  constructor(
+    private foodRepository: ReadFoodContract & CreateFoodContract,
+    private idsRepository: IdsRepositoryContract,
+  ) {}
 
   async execute({
     name,
@@ -23,7 +26,7 @@ export class AddFood {
     }
 
     const food = this.foodRepository.create({
-      id: randomUUID(),
+      id: this.idsRepository.createRandomUUID(),
       name,
       quantity,
       calories,
