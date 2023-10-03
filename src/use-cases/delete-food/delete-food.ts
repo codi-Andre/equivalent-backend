@@ -1,9 +1,9 @@
 import { BadRequestError } from '../errors/bad-request-error'
-import { FoodReadContract } from '../food-list/food-list-interfaces'
+import { ReadFoodContract } from '../food-list/food-list-interfaces'
 import { DeleteFoodContract } from './delete-food-interface'
 
 export class DeleteFood {
-  constructor(private foodRepository: FoodReadContract & DeleteFoodContract) {}
+  constructor(private foodRepository: ReadFoodContract & DeleteFoodContract) {}
 
   async execute(foodId: string) {
     const food = await this.foodRepository.findById(foodId)
