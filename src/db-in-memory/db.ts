@@ -1,6 +1,6 @@
 export default [
   {
-    id: 1,
+    id: '1',
     name: 'arroz',
     quantity: 100,
     calories: 130,
@@ -10,7 +10,7 @@ export default [
     category: 'ricos em carboidratos',
   },
   {
-    id: 2,
+    id: '2',
     name: 'banana',
     quantity: 100,
     calories: 89,
@@ -20,7 +20,7 @@ export default [
     category: 'ricos em carboidratos',
   },
   {
-    id: 3,
+    id: '3',
     name: 'banana-da-terra',
     quantity: 122,
     calories: 89,
@@ -30,7 +30,7 @@ export default [
     category: 'ricos em carboidratos',
   },
   {
-    id: 4,
+    id: '4',
     name: 'batata',
     quantity: 100,
     calories: 77,
@@ -40,7 +40,7 @@ export default [
     category: 'ricos em carboidratos',
   },
   {
-    id: 5,
+    id: '5',
     name: 'batata-doce',
     quantity: 100,
     calories: 86,
@@ -50,7 +50,7 @@ export default [
     category: 'ricos em carboidratos',
   },
   {
-    id: 6,
+    id: '6',
     name: 'carne bovina',
     quantity: 100,
     calories: 250,
@@ -60,7 +60,7 @@ export default [
     category: 'ricos em proteínas',
   },
   {
-    id: 7,
+    id: '7',
     name: 'carne de porco',
     quantity: 100,
     calories: 242,
@@ -70,7 +70,7 @@ export default [
     category: 'ricos em proteínas',
   },
   {
-    id: 8,
+    id: '8',
     name: 'frango',
     quantity: 100,
     calories: 239,
@@ -80,7 +80,7 @@ export default [
     category: 'ricos em proteínas',
   },
   {
-    id: 9,
+    id: '9',
     name: 'inhame',
     quantity: 100,
     calories: 118,
@@ -90,7 +90,7 @@ export default [
     category: 'ricos em carboidratos',
   },
   {
-    id: 10,
+    id: '10',
     name: 'mandioca',
     quantity: 100,
     calories: 159,
@@ -100,7 +100,7 @@ export default [
     category: 'ricos em carboidratos',
   },
   {
-    id: 11,
+    id: '11',
     name: 'carne de peixe',
     quantity: 100,
     calories: 206,
@@ -110,7 +110,7 @@ export default [
     category: 'ricos em proteínas',
   },
   {
-    id: 12,
+    id: '12',
     name: 'ovo',
     quantity: 100,
     calories: 155,

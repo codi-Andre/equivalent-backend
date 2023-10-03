@@ -1,6 +1,7 @@
 import { FastifyReply, FastifyRequest } from 'fastify'
-import { makeFoodList } from '../usecases/food-list/food-list-factory'
-import { OrderOptions } from '../usecases/food-list/food-list-interfaces'
+import { makeFoodList } from '../use-cases/food-list/food-list-factory'
+import { OrderOptions } from '../use-cases/food-list/food-list-interfaces'
+
 interface IQuerystring {
   sort: string
   order: string
@@ -18,13 +19,13 @@ export async function getFoodList(
     orderOption = order === 'desc' ? OrderOptions.DESC : OrderOptions.ASC
   }
 
-  console.log(sort, order)
+  console.log(sort, order) // lembrar de apagar depois
 
   try {
     // chamar factory
     const foodListUseCase = makeFoodList()
 
-    // executa usecase
+    // executa use-case
     const res = await foodListUseCase.execute(sort, orderOption)
 
     return res
