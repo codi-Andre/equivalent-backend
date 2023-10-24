@@ -1,6 +1,7 @@
 import cors from '@fastify/cors'
 import Fastify, { FastifyInstance } from 'fastify'
 import { foodRoutes } from './routes/food-routes'
+import { userRoutes } from './routes/user-routes'
 
 const server: FastifyInstance = Fastify({})
 
@@ -8,6 +9,7 @@ server.register(cors, {
   origin: '*',
 })
 server.register(foodRoutes)
+server.register(userRoutes)
 
 const start = async () => {
   try {
